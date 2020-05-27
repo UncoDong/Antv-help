@@ -169,7 +169,188 @@ fetch('../source/differentcolor-20000.json')
         });
       scene.addLayer(pointLayer);
     });
+fetch('../source/differentcolor-20001.json')
+  //fetch('https://gw.alipayobjects.com/os/basement_prod/d3564b06-670f-46ea-8edb-842f7010a7c6.json')
+    .then(res => res.json())
+    .then(data => {
+      const pointLayer = new L7.PointLayer({})
+        .source(data)
+        .size(3)
+        .color('mag',mag => {
+          //return '#0A3663'
+          // if (index<20)
+          //    {console.log(mag); }
+          // index++;
+          //return '#e6f7ff'
+
+
+          switch(mag){
+              // case 0 :
+              //    return '#FB075C'
+              //    break; 
+              case 1 :
+                 return '#F11756'
+                 break; 
+              case 2 :
+                 return '#E22D4E'
+                 break; 
+              case 3 :
+                 return '#D04A43'
+                 break; 
+              case 4 :
+                 return '#BB6B37'
+                 break; 
+              case 5 :
+                 return '#A19228'
+                 break; 
+              case 6 :
+                 return '#8BB51B'
+                 break; 
+              case 7 :
+                 return '#78D310'
+                 break; 
+              case 8 :
+                 return '#69E908'
+                 break; 
+              case 9 :
+                 return '#5EFA01'
+                 break; 
+              case 10 :
+                 return '#002766'
+                 break; 
+              default : 
+                 return 'black'
+                 break; 
+          }
+        })
+        .style({
+          opacity: 0
+        });
+      scene.addLayer(pointLayer);
+    });
+
+    fetch('../source/differentcolor-20002.json')
+  //fetch('https://gw.alipayobjects.com/os/basement_prod/d3564b06-670f-46ea-8edb-842f7010a7c6.json')
+    .then(res => res.json())
+    .then(data => {
+      const pointLayer = new L7.PointLayer({})
+        .source(data)
+        .size(3)
+        .color('mag',mag => {
+          //return '#0A3663'
+          // if (index<20)
+          //    {console.log(mag); }
+          // index++;
+          //return '#e6f7ff'
+
+
+          switch(mag){
+              // case 0 :
+              //    return '#FB075C'
+              //    break; 
+              case 1 :
+                 return '#F11756'
+                 break; 
+              case 2 :
+                 return '#E22D4E'
+                 break; 
+              case 3 :
+                 return '#D04A43'
+                 break; 
+              case 4 :
+                 return '#BB6B37'
+                 break; 
+              case 5 :
+                 return '#A19228'
+                 break; 
+              case 6 :
+                 return '#8BB51B'
+                 break; 
+              case 7 :
+                 return '#78D310'
+                 break; 
+              case 8 :
+                 return '#69E908'
+                 break; 
+              case 9 :
+                 return '#5EFA01'
+                 break; 
+              case 10 :
+                 return '#002766'
+                 break; 
+              default : 
+                 return 'black'
+                 break; 
+          }
+        })
+        .style({
+          opacity: 0
+        });
+      scene.addLayer(pointLayer);
+    });
+
+    fetch('../source/differentcolor-20003.json')
+  //fetch('https://gw.alipayobjects.com/os/basement_prod/d3564b06-670f-46ea-8edb-842f7010a7c6.json')
+    .then(res => res.json())
+    .then(data => {
+      const pointLayer = new L7.PointLayer({})
+        .source(data)
+        .size(3)
+        .color('mag',mag => {
+          //return '#0A3663'
+          // if (index<20)
+          //    {console.log(mag); }
+          // index++;
+          //return '#e6f7ff'
+
+
+          switch(mag){
+              // case 0 :
+              //    return '#FB075C'
+              //    break; 
+              case 1 :
+                 return '#F11756'
+                 break; 
+              case 2 :
+                 return '#E22D4E'
+                 break; 
+              case 3 :
+                 return '#D04A43'
+                 break; 
+              case 4 :
+                 return '#BB6B37'
+                 break; 
+              case 5 :
+                 return '#A19228'
+                 break; 
+              case 6 :
+                 return '#8BB51B'
+                 break; 
+              case 7 :
+                 return '#78D310'
+                 break; 
+              case 8 :
+                 return '#69E908'
+                 break; 
+              case 9 :
+                 return '#5EFA01'
+                 break; 
+              case 10 :
+                 return '#002766'
+                 break; 
+              default : 
+                 return 'black'
+                 break; 
+          }
+        })
+        .style({
+          opacity: 0
+        });
+      scene.addLayer(pointLayer);
+    });
+
 });
+
 
 
 
