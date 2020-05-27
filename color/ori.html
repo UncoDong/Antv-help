@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>创建地图场景</title>
+    <style>
+       html,body{overflow:hidden;margin:0;}
+    	#map { position:absolute; top:0; bottom:0; width:100%; }
+    </style>
+</head>
+<body>
+<div id="map"></div>
+<script src="../source/l7_2.js"></script>
+<!-- <script src="https://gw.alipayobjects.com/os/antv/pkg/_antv.l7-2.0.0-beta.19/dist/l7.js"></script> -->
+<script>
+
+
+// const scene = new L7.Scene({
+//   id: 'map',
+//   map: new L7.GaodeMap({
+//     pitch: 64.88,
+//     style: 'dark',
+//     center: [ 114.060288, 22.53684 ],
+//     zoom: 15.63
+//   })
+// });
+
+  const scene = new L7.Scene({
+  id: 'map',
+  map: new L7.GaodeMap({
+    pitch: 0,
+    style: 'dark',
+    center: [ 114.402035,30.530367 ],
+    zoom: 18.63
+  })
+});
+scene.on('loaded', () => {
+  fetch('../source/differentcolor2.json')
+  //fetch('https://gw.alipayobjects.com/os/basement_prod/513add53-dcb2-4295-8860-9e7aa5236699.json')
+    .then(res => res.json())
+    .then(data => {
+      const pointLayer = new L7.PointLayer({})
+        .source(data)
+        .size(2)
+        .color('h8', [
+          '#0A3663',
+          '#1558AC',
+          '#3771D9',
+          '#4D89E5',
+          '#64A5D3',
+          '#72BED6',
+          '#83CED6',
+          '#A6E1E0',
+          '#B8EFE2',
+          '#D7F9F0'
+        ])
+        .style({
+          opacity: 1
+        });
+
+      scene.addLayer(pointLayer);
+    });
+});
+
+
+</script>
+</body>
+</html>

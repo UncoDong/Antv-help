@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>创建地图场景</title>
+    <style>
+       html,body{overflow:hidden;margin:0;}
+    	#map { position:absolute; top:0; bottom:0; width:100%; }
+    </style>
+</head>
+<body>
+<div id="map"></div>
+<script src="../source/l7_2.js"></script>
+<script>
+var index = 1;
+  const scene = new L7.Scene({
+  id: 'map',
+  map: new L7.GaodeMap({
+    pitch: 0,
+    style: 'dark',
+    center: [ 114.402035,30.530367 ],
+    zoom: 18.63
+  })
+});
+scene.on('loaded', () => {
+fetch('../source/text.json')
+    .then(res => res.json())
+    .then(data => {
+      const pointLayer = new L7.PointLayer({})
+        .source(data.list, {
+          parser: {
+            type: 'json',
+            x: 'j',
+            y: 'w'
+          }
+        })
+        .shape('t', 'text')
+        .size(12)
+        .color('w', [ '#ffffff', '#ffffff', '#ffffff' ])
+        .style({
+          textAnchor: 'center', // 文本相对锚点的位置 center|left|right|top|bottom|top-left
+          textOffset: [ 0, 0 ], // 文本相对锚点的偏移量 [水平, 垂直]
+          spacing: 2, // 字符间距
+          padding: [ 1, 1 ], // 文本包围盒 padding [水平，垂直]，影响碰撞检测结果，避免相邻文本靠的太近
+          stroke: '#ffffff', // 描边颜色
+          strokeWidth: 0.3, // 描边宽度
+          strokeOpacity: 1.0
+        });
+
+      scene.addLayer(pointLayer);
+    });
+
+fetch('../source/haspath.json')
+  //fetch('https://gw.alipayobjects.com/os/basement_prod/d3564b06-670f-46ea-8edb-842f7010a7c6.json')
+    .then(res => res.json())
+    .then(data => {
+      const pointLayer = new L7.PointLayer({})
+        .source(data)
+        .size(3)
+        .color('mag',mag => {
+          switch(mag){
+              case 0 :
+                 return '#0050b3'
+                 break; 
+              case 1 :
+                 return '#bae7ff'
+                 break; 
+              default : 
+                 return 'yellow'
+                 break; 
+          }
+        })
+        .style({
+          opacity: 0
+        });
+      scene.addLayer(pointLayer);
+    });
+    
+
+});
+
+
+
+</script>
+</body>
+</html>
